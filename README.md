@@ -1,11 +1,11 @@
 # C# Console Applications App01 to App05
-| Author | Details |
-| ---- | ---- |
-**Name**: | Mercy Sholola  |
-**Student ID**: | 22130778 |
-**Course:** | Computing and Web Development |
-**Module**: | CO453 |
-**Started**: | January 2022 |    
+| Author          | Details |
+|-----------------| ---- |
+| **Name**:       | Mercy Sholola  |
+| **Student ID**: | 22130778 |
+| **Course:**     | Computing and Web Development |
+| **Module**:     | CO453 |
+|  **Started**:   | January 2022 |    
 
 1. App01: Distance Converter
 2. App02: BMI Calculator
