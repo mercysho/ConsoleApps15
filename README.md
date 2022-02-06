@@ -4,7 +4,7 @@
 **Name**: | Mercy Sholola  |
 **Student ID**: | 22130778 |
 **Course:** | Computing and Web Development |
-**Module**: | CO45 |
+**Module**: | CO453 |
 **Started**: | January 2022 |    
 
 1. App01: Distance Converter
