@@ -9,17 +9,32 @@ namespace ConsoleAppProject.App01
     /// </author>
     public class DistanceConverter
     {
+        public const int FEET_IN_MILES = 5280;
+        
         private double miles;
+        
         private double feet;
         /// <summary>
-        /// 
+        /// This method shows that the program will input thr distance that is measured in miles,
+        /// will calculate the same distance in feet, and finally output the distance also in
+        /// feet.
         /// </summary>
         public void Run()
-        {
+        { 
+            OutputHeading();  
           InputMiles();
           CalculateFeet();
           OutputFeet();
         }
+
+        private void OutputHeading()
+        {
+            Console.WriteLine("\n-------------------------------------------");
+            Console.WriteLine("      Convert Miles to Feet               ");
+            Console.WriteLine("         by Mercy Sholola                 ");
+            Console.WriteLine("-------------------------------------------\n");
+        }
+
         /// <summary>
         /// Prompt the user to enter distance in miles
         /// Input miles as a double digit
@@ -33,12 +48,12 @@ namespace ConsoleAppProject.App01
 
         private void CalculateFeet()
         {
-            
+            feet = miles * 5280;
         }
 
         private void OutputFeet()
         {
-            
+           Console.WriteLine(miles + " miles is equal to " + feet + " feet!"); 
         }
     }
 }
