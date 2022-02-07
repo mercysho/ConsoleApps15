@@ -8,6 +8,32 @@
     /// </author>
     public class DistanceConverter
     {
+        private double miles;
+        private double feet;
+        /// <summary>
+        /// 
+        /// </summary>
+        public void Run()
+        {
+            
+        }
+        /// <summary>
+        /// Prompt the user to enter distance in miles
+        /// Input miles as a double digit
+        /// </summary>
+        private void InputMiles()
+        {
+            
+        }
 
+        private void CalculateFeet()
+        {
+            
+        }
+
+        private void OutputFeet()
+        {
+            
+        }
     }
 }
