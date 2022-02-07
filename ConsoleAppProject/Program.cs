@@ -1,6 +1,7 @@
-﻿using ConsoleAppProject.App03;
+﻿using ConsoleAppProject.App01;
 using ConsoleAppProject.Helpers;
 using System;
+using ConsoleAppProject.App01;
 
 namespace ConsoleAppProject
 {
@@ -24,6 +25,9 @@ namespace ConsoleAppProject
             Console.WriteLine("        by Mercy Sholola                          ");
             Console.WriteLine(" =================================================");
             Console.WriteLine();
+
+            DistanceConverter converter = new DistanceConverter();
+            converter.Run();
         }
     }
 }
