@@ -1,4 +1,5 @@
 ﻿using System;
+using ConsoleAppProject.Helpers;
 
 namespace ConsoleAppProject.App01
 {
@@ -11,10 +12,13 @@ namespace ConsoleAppProject.App01
     public class DistanceConverter
     {
         public const int FEET_IN_MILES = 5280;
+        public const double METRES_IN_MILES = 1609.04;
 
         private double miles;
 
         private double feet;
+        
+        private double metres;
 
         /// <summary>
         /// This method shows that the program will input the distance that is measured in miles,
@@ -41,21 +45,26 @@ namespace ConsoleAppProject.App01
             Console.WriteLine("Do you want to convert miles to feet or feet to miles?");
             Console.WriteLine("1.Miles to feet");
             Console.WriteLine("2.Feet to miles");
+            Console.WriteLine("3.Metres to miles");
 
-            int value = Console.Read();
+            int value = (int) ConsoleHelper.InputNumber("enter your choice > ", 1,3);
 
             if (value == 1)
             {
-                return value;
+                return 1;
             }
             else if (value == 2)
             {
-                return value;
+                return 2;
+            }
+            else if (value == 3)
+            {
+                return 3;
             }
             else
             {
                 Console.Beep();
-                Console.WriteLine("Please choose either 1 or 2");
+                Console.WriteLine("Please choose either 1, 2 or 3");
                 return 0;
             }
         }
@@ -64,28 +73,38 @@ namespace ConsoleAppProject.App01
         {
             if (choice == 1)
             {
-                InputMiles();
-                CalculateFeet();
+                miles = ConsoleHelper.InputNumber("please enter your distance in miles > ");
+                feet = miles * FEET_IN_MILES;
                 OutputFeet();
             }
             else if (choice == 2)
             {
-                InputMiles();
-                CalculateFeet();
-                OutputFeet();
+                feet = ConsoleHelper.InputNumber("please enter your distance in feet > ");
+                miles = feet / FEET_IN_MILES;
+                OutputMiles();
+            }
+            else if (choice == 3)
+            {
+                miles = ConsoleHelper.InputNumber("please enter your distance in miles > ");
+                metres = miles * METRES_IN_MILES;
+                OutputMetres();
+            }
+            else
+            {
+                Console.WriteLine("you have made an invalid choice");
             }
         }
 
-        /// <summary>
-        /// Prompt the user to enter distance in miles
-        /// Input miles as a double digit
-        /// </summary>
-        private void InputMiles()
+        private void OutputMetres()
         {
-            Console.Write("enter number of miles > ");
-            string value = Console.ReadLine();
-            miles = Convert.ToDouble(value);
+            throw new NotImplementedException();
         }
+
+        private void OutputMiles()
+        {
+            throw new NotImplementedException();
+        }
+
 
         private void CalculateFeet()
         {
