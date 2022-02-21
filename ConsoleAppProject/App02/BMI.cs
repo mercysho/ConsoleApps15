@@ -10,7 +10,10 @@ namespace ConsoleAppProject.App02
     /// </author>
     public class BMI
     {
+
     }
+}
+    
 
  
 
