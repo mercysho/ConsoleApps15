@@ -22,27 +22,31 @@ namespace ConsoleAppProject.App02
         /// </summary>
         public void GetMeasurementType()
         {
-            Console.WriteLine("Would you like to use imperial measurements (pounds and inches) or metric Measurements (kg and metres)\n Please Type M for Metric or I for imperial: ");
+            Console.WriteLine("Would you like to use imperial measurements " + 
+                              "(pounds and inches) or metric Measurements (kg and metres)" +
+                              "\n Please Type M for Metric or I for imperial: ");
             measurement = Console.ReadLine();
             measurement = measurement.ToUpper();
         }
 
         /// <summary>
-        /// This method will ask the user to enter their height and weight, and will also display the metric or imperial measurements, depending on what they chose previously.
+        /// This method will ask the user to enter their height and weight, and will also
+        /// display the imperial or metric  measurements, depending on what they chose
+        /// previously
         /// </summary>
         public void GetDetails()
         {
             string input;
             if (measurement == "I")
             {
-                weightUnit = "Pound";
-                heightUnit = "Inches";
+                weightUnit = "lbs";
+                heightUnit = "in";
             }
 
             if (measurement == "M")
             {
                 weightUnit = "kg";
-                heightUnit = "Metres";
+                heightUnit = "m";
             }
 
             Console.Write("Please enter your Weight(" + weightUnit + "): ");
@@ -54,7 +58,8 @@ namespace ConsoleAppProject.App02
         }
 
         /// <summary>
-        /// This method will calculate the BMI in metric or imperial using the height and weigth entered in GetDetails
+        /// This method will calculate the BMI in metric or imperial units using the height
+        /// and weight entered in GetDetails above
         /// </summary>
         public void Calculate()
         {
@@ -71,21 +76,22 @@ namespace ConsoleAppProject.App02
         }
 
         /// <summary>
-        /// This Method will display the BMI of the user letting them know what range there are in
+        /// This Method will display the users BMI showing them what category they fall into
+        /// depending on their weight.
         /// </summary>
         public void Display()
         {
             if (bmi < 18.5)
             {
-                Console.WriteLine("Bmi less than 18.5 … UnderWeigth");
+                Console.WriteLine("Bmi less than 18.5 … Under Weight");
             }
             else if (bmi > 18.5 && bmi <= 25)
             {
-                Console.WriteLine("Bmi 18.5 up to 25 … Desirable Weigth for size");
+                Console.WriteLine("Bmi 18.5 up to 25 … Average Weight");
             }
             else if (bmi > 25 && bmi <= 30)
             {
-                Console.WriteLine("Bmi 25 up to 30 … OverWeigth");
+                Console.WriteLine("Bmi 25 up to 30 … Over Weight");
             }
             else if (bmi > 30 && bmi <= 40)
             {
@@ -93,11 +99,11 @@ namespace ConsoleAppProject.App02
             }
             else if (bmi > 40)
             {
-                Console.WriteLine("Bmi 40 or over … Severely Obese");
+                Console.WriteLine("Bmi 40 or over … Very Obese");
             }
             else
             {
-                Console.WriteLine("Please try again, there seems to be an error");
+                Console.WriteLine("There seems to be an error. Please try again");
             }
         }
     }
