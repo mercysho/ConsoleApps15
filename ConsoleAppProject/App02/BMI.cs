@@ -15,6 +15,26 @@ namespace ConsoleAppProject.App02
         private double weight, height, bmi;
         private string measurement;
         private string weightUnit, heightUnit;
+        
+        public void Run()
+        {
+            Console.WriteLine("\n-------------------------------------------");
+            Console.WriteLine("          BMI Calculator                  ");
+            Console.WriteLine("         by Mercy Sholola                 ");
+            Console.WriteLine("-------------------------------------------\n");
+            int choice = InputChoice();
+            ExecuteChoice(choice);
+        }
+
+        private void ExecuteChoice(int choice)
+        {
+            throw new NotImplementedException();
+        }
+
+        private int InputChoice()
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// This method will ask the user if they would like to use imperial or metric
