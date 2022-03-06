@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace ConsoleAppProject.App02
 {
@@ -23,10 +24,10 @@ namespace ConsoleAppProject.App02
             Console.WriteLine("         by Mercy Sholola                 ");
             Console.WriteLine("-------------------------------------------\n");
             int choice = InputChoice();
-            ExecuteChoice(choice);
+            ExecuteChoice();
         }
 
-        private void ExecuteChoice(int choice)
+        private void ExecuteChoice()
         {
             throw new NotImplementedException();
         }
@@ -125,6 +126,24 @@ namespace ConsoleAppProject.App02
             {
                 Console.WriteLine("There seems to be an error. Please try again");
             }
+            
+            /// <summary>
+            /// This method will display a message that applies to the BAME groups
+            /// </summary>
+        }
+    }
+    public class message
+    {
+        public string BameWarning()
+        {
+            StringBuilder message = new StringBuilder("\n");
+
+            Console.WriteLine("\n If you are Black, Asian or other minority " +
+                              "ethnic groups, you have a higher risk." +
+                              "\n Adults 23.0 or more are at increased risk" +
+                              " Adults 27.5 or more are at high risk");
+
+            return message.ToString();
         }
     }
 }
