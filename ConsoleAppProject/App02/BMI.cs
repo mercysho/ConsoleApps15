@@ -134,16 +134,20 @@ namespace ConsoleAppProject.App02
     }
     public class message
     {
+        private message(string s)
+        {
+            throw new NotImplementedException();
+        }
+
         public string BameWarning()
         {
-            StringBuilder message = new StringBuilder("\n");
-
+            message message = new message ("\n");
             Console.WriteLine("\n If you are Black, Asian or other minority " +
                               "ethnic groups, you have a higher risk." +
                               "\n Adults 23.0 or more are at increased risk" +
                               " Adults 27.5 or more are at high risk");
-
-            return message.ToString();
+            
+            return Console.ReadLine();
         }
     }
 }
