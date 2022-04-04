@@ -17,7 +17,7 @@ namespace ConsoleAppProject.App04
     {
         // the name of the image file
         public String Filename { get; set; }
-        
+
         // a one line image caption
         public String Caption { get; set; }
 
@@ -37,6 +37,19 @@ namespace ConsoleAppProject.App04
         {
             this.Filename = filename;
             this.Caption = caption;
+        }
+        /// <summary>
+        /// Display the new photo posted 
+        /// </summary>
+        public void Display()
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("===================================================");
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("\t\t Photo Post Display");
+            Console.WriteLine($"\t\tFilename: [{Filename}]");
+            Console.WriteLine($"\t\tCaption: [{Caption}]");
+            base.Display();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ConsoleAppProject.Helpers;
 
 
 namespace ConsoleAppProject.App04
@@ -18,42 +19,174 @@ namespace ConsoleAppProject.App04
     ///  Mercy Sholola
     ///  version 0.1
     ///</author> 
-    public class NewsFeed
+     public class NewsFeed
     {
-        public List<Post> PostList { get; set; }
+        public const string AUTHOR = "Mercy";
         
+
+        private readonly List<Post> posts; 
+
         ///<summary>
         /// Construct an empty news feed.
         ///</summary>
         public NewsFeed()
-        {
-            PostList = new List<Post>();
+        {   
+            posts = new List<Post>();
+
+            MessagePost post = new MessagePost(AUTHOR, "My favourite genre of music is RnB");
+            AddMessagePost(post);
+            post.AddComment("hello");
+
+            PhotoPost photoPost = new PhotoPost(AUTHOR, "Photornb.jpg", "RnB Music");
+            AddPhotoPost(photoPost);
+
+         
         }
 
+        public Post Post
+        {
+            get => default;
+            set
+            {
+            }
+        }
 
         ///<summary>
-        /// Add a text post to the news feed.
-        /// 
-        /// @param text  The text post to be added.
+        /// Add a Photo post to the news feed.
+        /// @param text  The Photo post to be added.
         ///</summary>
-        public void AddPost(Post post)
+        public void AddMessagePost(MessagePost message)
         {
-            PostList.Add(post);
+            posts.Add(message);
+        }
+
+        ///<summary>
+        /// Add a Photo to this post.
+        /// </summary>
+        public void AddPhotoPost(PhotoPost photo)
+        {
+            posts.Add(photo);
         }
         
-        ///<summary>
-        /// Show the news feed. Currently: print the news feed details to the
-        /// terminal. (To do: replace this later with display in web browser.)
-        ///</summary>
+        public void DisplayAuthorPost(string author)
+        {
+            foreach (Post post in posts)
+            {
+                if (post.Username == author)
+                {
+                    post.Display();
+                }
+            }
+        }
+        
+        public void FindDate(string date)
+        {
+            foreach (Post post in posts)
+            {
+                if (post.Timestamp.ToLongDateString().Contains(date))
+                {
+                    post.Display();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Add comment to the post
+        /// </summary>
+        public void AddPostComment(int id, string text)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($"\nPost with ID: {id} does not exist!\n");
+            }
+            else
+            {
+                Console.WriteLine($"\nThe comment have been added to post {id}!\n");
+                post.AddComment(text);
+                post.Display();
+            }
+        }
+        
+        public void LikePost(int id)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($"\nPost with ID: {id} does not exist!\n");
+            }
+            else
+            {
+                Console.WriteLine($"\nYou have liked the the post {id}!\n");
+                post.Like();
+                post.Display();
+            }
+        }
+        
+        public void UnlikePost(int id)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($"\nPost with ID: {id} does not exist!\n");
+            }
+            else
+            {
+                Console.WriteLine($"\nYou have unliked the the post {id}!\n");
+                post.Unlike();
+                post.Display();
+            }
+        }
+
+        /// <summary>
+        /// This method removes all the new post by identifying the id
+        /// </summary>
+        public void RemovePost(int id)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($" \nPost with ID: {id} does not exist!\n");
+            }
+            else
+            {
+                Console.WriteLine($" \nThe following Post {id} has been removed!\n");
+                              
+                posts.Remove(post);
+                post.Display();
+            }
+        }
+
+        /// <summary>
+        /// This method will find the post
+        /// </summary>
+        public Post FindPost(int id)
+        {
+            foreach (Post post in posts)
+            {
+                if (post.PostId == id)
+                {
+                    return post;
+                }
+            }
+
+            return null;
+        }
+    
         public void Display()
         {
+            ConsoleHelper.OutputTitle("Display All Posts");
+
             // display all text posts
-            foreach (Post post in PostList)
+            foreach (Post post in posts)
             {
                 post.Display();
                 Console.WriteLine();   // empty line between posts
             }
-            
         }
     }
 

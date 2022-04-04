@@ -3,37 +3,42 @@ using System.Collections.Generic;
 
 namespace ConsoleAppProject.App04
 {
-    public class Post
+ public class Post
     {
+
+        public int PostId { get; }
+        public String Username { get; set; }
+
+        public DateTime Timestamp { get; }
+
+        public static int instances = 0;
+
         private int likes;
 
         private readonly List<String> comments;
-
-        // username of the post's author
-        public String Author { get; }
         
-        public DateTime Timestamp { get; }
-
-        public Post(string author)
+        public Post(String author)
         {
-            Author = author;
+            instances++;
+            PostId = instances;
+
+            this.Username = author;
             Timestamp = DateTime.Now;
 
             likes = 0;
             comments = new List<String>();
         }
-           
+
         ///<summary>
-        /// Record one more 'Like' indication from a user.
+        /// Notify of another like from user.
         ///</summary>
         public void Like()
         {
             likes++;
         }
 
-
         ///<summary>
-        /// Record that a user has withdrawn his/her 'Like' vote.
+        /// This method will be able to notify thet a user has unliked a post.
         ///</summary>
         public void Unlike()
         {
@@ -43,30 +48,26 @@ namespace ConsoleAppProject.App04
             }
         }
 
-
         ///<summary>
         /// Add a comment to this post.
-        ///</summary>
-        /// <param name="text">
-        /// The new comment to add.
-        /// </param>
+        /// </summary>
         public void AddComment(String text)
         {
             comments.Add(text);
         }
-
-
-        ///<summary>
-        /// Display the details of this post.
-        /// 
-        /// (Currently: Print to the text terminal. This is simulating display 
-        /// in a web browser for now.)
-        ///</summary>
+        
         public void Display()
         {
             Console.WriteLine();
-            Console.WriteLine($"    Author: {Author}");
-            Console.WriteLine($"    Time Elpased: {FormatElapsedTime(Timestamp)}");
+            Console.WriteLine($"\tPost ID:\t {PostId}");
+            Console.WriteLine($"\tAuthor:\t\t {Username}");
+            Console.WriteLine($"\tTime Elpased:\t {FormatElapsedTime(Timestamp)}");
+            Console.WriteLine($"\tDate Posted:\t {Timestamp.ToLongDateString()}");
+            Console.WriteLine($"\tTime Posted:\t {Timestamp.ToLongTimeString()}");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("===================================================");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+
             Console.WriteLine();
 
             if (likes > 0)
@@ -81,13 +82,33 @@ namespace ConsoleAppProject.App04
             if (comments.Count == 0)
             {
                 Console.WriteLine("    No comments.");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("===================================================");
+                Console.ForegroundColor = ConsoleColor.Yellow;
             }
             else
             {
                 Console.WriteLine($"    Comment(s): {comments.Count}  Click here to view.");
+                foreach (string comments in comments)
+                {
+                    Console.WriteLine($"\tComment: {comments}\n");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("===================================================");
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+
+                }
+               
+                
             }
         }
 
+        /// <summary>
+        /// This method will count the number of the posts
+        /// </summary>
+        public static int GetNumberOfPosts()
+        {
+            return instances;
+        }
 
         /// <summary>
         /// Create a string describing a time point in the past in terms 
@@ -103,8 +124,8 @@ namespace ConsoleAppProject.App04
         private String FormatElapsedTime(DateTime time)
         {
             DateTime current = DateTime.Now;
-            TimeSpan timePast = current - time; 
-            
+            TimeSpan timePast = current - time;
+
             long seconds = (long)timePast.TotalSeconds;
             long minutes = seconds / 60;
 
@@ -117,6 +138,8 @@ namespace ConsoleAppProject.App04
                 return seconds + " seconds ago";
             }
         }
-
+       
     }
+
+
 }
