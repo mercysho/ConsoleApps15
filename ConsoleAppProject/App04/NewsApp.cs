@@ -55,16 +55,13 @@ public class NewsApp
                     case 4:
                         DisplayAll();
                         break;
-                    case 5:
-                        DisplayByAuthor();
-                        break;
-                    case 6:
+                    case 5 :
                         AddComment();
                         break;
-                    case 7:
+                    case 6:
                         LikePosts();
                         break;
-                    case 8:
+                    case 7:
                         wantToQuit = true;
                         break;
                 }
