@@ -31,7 +31,6 @@ public class NewsApp
                 "Post Image",
                 "Remove Post",
                 "Display All Posts",
-                "Display Posts by Author",
                 "Add Comment to Post",
                 "Like/Unlike Post",
                 "Quit"
@@ -120,8 +119,6 @@ public class NewsApp
             Console.WriteLine("Enter the name of user you want to display > ");
             string author = Console.ReadLine();
             
-            ConsoleHelper.OutputTitle($"Posts by {author}");
-            news.DisplayAuthorPost(author);
         }
 
         /// <summary>
@@ -203,11 +200,7 @@ public class NewsFeed
     {
         throw new NotImplementedException();
     }
-
-    public void DisplayAuthorPost(string author)
-    {
-        throw new NotImplementedException();
-    }
+    
 
     public void Display()
     {
