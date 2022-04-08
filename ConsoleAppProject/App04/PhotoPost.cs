@@ -41,14 +41,15 @@ namespace ConsoleAppProject.App04
         /// <summary>
         /// Display the new photo posted 
         /// </summary>
-        public void Display()
+        public override void Display()
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("===================================================");
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\t\t Photo Post Display");
             Console.WriteLine($"\t\tFilename: [{Filename}]");
             Console.WriteLine($"\t\tCaption: [{Caption}]");
+
             base.Display();
         }
     }

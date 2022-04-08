@@ -56,8 +56,10 @@ namespace ConsoleAppProject.App04
             comments.Add(text);
         }
         
-        public void Display()
+        public virtual void Display()
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+
             Console.WriteLine();
             Console.WriteLine($"\tPost ID:\t {PostId}");
             Console.WriteLine($"\tAuthor:\t\t {Username}");
@@ -66,7 +68,6 @@ namespace ConsoleAppProject.App04
             Console.WriteLine($"\tTime Posted:\t {Timestamp.ToLongTimeString()}");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("===================================================");
-            Console.ForegroundColor = ConsoleColor.Yellow;
 
             Console.WriteLine();
 
@@ -95,10 +96,7 @@ namespace ConsoleAppProject.App04
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("===================================================");
                     Console.ForegroundColor = ConsoleColor.Yellow;
-
                 }
-               
-                
             }
         }
 

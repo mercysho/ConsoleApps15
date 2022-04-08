@@ -39,10 +39,9 @@ namespace ConsoleAppProject.App04
 
             PhotoPost photoPost = new PhotoPost(AUTHOR, "Photornb.jpg", "RnB Music");
             AddPhotoPost(photoPost);
-
-         
         }
 
+        // UML Diagram
         public Post Post
         {
             get => default;
@@ -93,7 +92,7 @@ namespace ConsoleAppProject.App04
         /// <summary>
         /// Add comment to the post
         /// </summary>
-        public void AddPostComment(int id, string text)
+        public void AddComment(int id, string text)
         {
             Post post = FindPost(id);
 

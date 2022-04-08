@@ -31,15 +31,15 @@ namespace ConsoleAppProject.App04
             Message = text;
         }
         
-        public void Display()
+        public override void Display()
         {
-            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("===================================================");
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("\t\tMassage Post Display");
             Console.WriteLine($"\t\tMessage: {Message}");
+
             base.Display();
-            
         }
 
     }

@@ -3,18 +3,11 @@ using System.Net.Http.Headers;
 using ConsoleAppProject.App04;
 using ConsoleAppProject.Helpers;
 
-public class NewsApp
+namespace ConsoleAppProject.App04
+{
+    public class NewsApp
     {
-
         private NewsFeed news = new NewsFeed();
-
-        public NewsFeed NewsFeed
-        {
-            get => default;
-            set
-            {
-            }
-        }
 
         /// <summary>
         /// This method shows a display menu for users to select from the choices below
@@ -23,7 +16,7 @@ public class NewsApp
         {
             ConsoleHelper.OutputHeading("\t\t Mercy's News Feed");
 
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Yellow;
 
             string[] choices = new string[]
             {
@@ -37,6 +30,7 @@ public class NewsApp
             };
 
             bool wantToQuit = false;
+
             do
             {
                 int choice = ConsoleHelper.SelectChoice(choices);
@@ -108,7 +102,7 @@ public class NewsApp
             
             Console.WriteLine("Enter the comment you want to add > ");
             string comment = Console.ReadLine();
-            news.AddPost(id, comment);
+            news.AddComment(id, comment);
         }
         
         private void DisplayByAuthor()
@@ -134,8 +128,6 @@ public class NewsApp
             ConsoleHelper.OutputTitle($"Removing a Post");
 
             int id = (int)ConsoleHelper.InputNumber("Please enter post id > ", 1, Post.GetNumberOfPosts());
-
-           
         }
         
         private void PostImage()
@@ -144,10 +136,10 @@ public class NewsApp
              
              string author = InputName();
 
-             Console.WriteLine("Please enter your image file name > ");
+             Console.Write("Please enter your image file name > ");
              string filename = Console.ReadLine();
 
-             Console.WriteLine("Please enter your image caption > ");
+             Console.Write("Please enter your image caption > ");
              string caption = Console.ReadLine();
 
              PhotoPost post = new PhotoPost(author, filename, caption);
@@ -163,11 +155,11 @@ public class NewsApp
            
             string author = InputName();
 
-            Console.WriteLine("Please enter your Message > ");
+            Console.Write("Please enter your Message > ");
             string message = Console.ReadLine();
 
             MessagePost post = new MessagePost(author, message);
-            news.AddPost(post);
+            news.AddMessagePost(post);
 
             ConsoleHelper.OutputTitle("You have just posted this message:");
             post.Display();
@@ -185,38 +177,4 @@ public class NewsApp
         }
       
     }
-
-public class NewsFeed
-{
-    public void AddPost(int id, string comment)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void AddPhotoPost(PhotoPost post)
-    {
-        throw new NotImplementedException();
-    }
-    
-
-    public void Display()
-    {
-        throw new NotImplementedException();
-    }
-
-    public void AddPost(MessagePost post)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void LikePost(int id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void UnlikePost(int id)
-    {
-        throw new NotImplementedException();
-    }
 }
-

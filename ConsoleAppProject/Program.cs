@@ -2,6 +2,7 @@
 using ConsoleAppProject.Helpers;
 using System;
 using ConsoleAppProject.App01;
+using ConsoleAppProject.App04;
 
 namespace ConsoleAppProject
 {
@@ -17,17 +18,20 @@ namespace ConsoleAppProject
     {
         public static void Main(string[] args)
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Yellow;
 
             Console.WriteLine();
             Console.WriteLine(" =================================================");
             Console.WriteLine("    BNU CO453 Applications Programming 2021-2022! ");
-            Console.WriteLine("        by Mercy Sholola                          ");
+            Console.WriteLine("                by Mercy Sholola                  ");
             Console.WriteLine(" =================================================");
             Console.WriteLine();
 
-            DistanceConverter converter = new DistanceConverter();
-            converter.Run();
+            //DistanceConverter converter = new DistanceConverter();
+            //converter.Run();
+
+            NewsApp app04 = new NewsApp();
+            app04.DisplayMenu();
         }
     }
 }
